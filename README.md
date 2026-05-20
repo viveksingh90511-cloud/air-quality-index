@@ -2,6 +2,10 @@
 
 > Enterprise-level AI-powered environmental intelligence system with real-time monitoring, AQI forecasting, health analytics, smart alerting, and geospatial intelligence.
 
+### 🔗 Live Production Web Application: [air-quality-index-frontend-fdtaw6oim.vercel.app](https://air-quality-index-frontend-fdtaw6oim.vercel.app)
+### 🔌 Live Production API Docs: [air-quality-index-7ix6glxkm-viveksingh90511-clouds-projects.vercel.app/docs](https://air-quality-index-7ix6glxkm-viveksingh90511-clouds-projects.vercel.app/docs)
+
+
 ![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-green?logo=fastapi)
 ![React](https://img.shields.io/badge/React-18.3+-blue?logo=react)
