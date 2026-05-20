@@ -1,100 +1,41 @@
-# 
 # Air Quality Forecasting & Health Monitoring
+# Production requirements (Vercel-compatible - under 500MB)
 
-# Enterprise Platform - Requirements
+# --- Core Backend ---
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+pydantic==2.7.1
+python-dotenv==1.0.1
 
-# 
-# --- Core Backend Frameworks ---
-
-flask
-fastapi
-uvicorn[standard]
-gunicorn
-pydantic
-python-dotenv
 # --- Database ---
+sqlalchemy==2.0.30
 
-sqlalchemy
-alembic
-pymysql
-# --- Caching & Task Queue ---
-
-redis
-celery
 # --- Authentication & Security ---
+pyjwt==2.8.0
+bcrypt==4.1.3
+python-multipart==0.0.9
+passlib[bcrypt]==1.7.4
 
-pyjwt
-bcrypt
-python-multipart
-passlib
-# --- ML/AI Core ---
+# --- ML/AI Core (lightweight only) ---
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.4.2
+scipy==1.13.0
 
-numpy
-pandas
-scikit-learn
-scipy
-# --- Deep Learning ---
-
-keras
 # --- Gradient Boosting ---
+xgboost==2.0.3
 
-xgboost
-lightgbm
-# --- Time Series ---
-
-prophet
-statsmodels
-# --- Explainability ---
-
-shap
-lime
-# --- Computer Vision ---
-
-opencv-python-headless
-# --- NLP / Chatbot ---
-
-langchain
-openai
-tiktoken
-# --- Visualization ---
-
-plotly
-matplotlib
-seaborn
-# --- Streamlit ---
-
-streamlit
-streamlit-folium
-# --- Geospatial ---
-
-folium
-geopy
-# --- Data Processing ---
-
-openpyxl
-pyarrow
 # --- HTTP Client ---
+httpx==0.27.0
+requests==2.31.0
+aiohttp==3.9.5
 
-httpx
-requests
-aiohttp
 # --- WebSocket ---
+websockets==12.0
 
-websockets
-# --- Testing ---
-
-pytest
-pytest-cov
-pytest-asyncio
-httpx
-# --- Linting ---
-
-flake8
-black
 # --- Utilities ---
-
-python-jose[cryptography]
-apscheduler
-pyyaml
-tqdm
-joblib
+python-jose[cryptography]==3.3.0
+apscheduler==3.10.4
+pyyaml==6.0.1
+joblib==1.4.2
+tqdm==4.66.4
