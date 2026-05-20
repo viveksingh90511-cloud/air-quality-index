@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: air-quality-api
+    env: python
+    rootDir: .
+    buildCommand: pip install -r requirements-prod.txt
+    startCommand: uvicorn backend.fastapi_services.main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: VITE_API_URL
+        sync: false
