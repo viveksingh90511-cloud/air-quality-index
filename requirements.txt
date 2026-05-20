@@ -1,5 +1,5 @@
 # Air Quality Forecasting & Health Monitoring
-# Production requirements (Vercel-compatible - under 500MB)
+# Minimal production requirements for Vercel serverless (target: <400MB)
 
 # --- Core Backend ---
 fastapi==0.111.0
@@ -16,26 +16,16 @@ bcrypt==4.1.3
 python-multipart==0.0.9
 passlib[bcrypt]==1.7.4
 
-# --- ML/AI Core (lightweight only) ---
+# --- Lightweight ML ---
 numpy==1.26.4
-pandas==2.2.2
 scikit-learn==1.4.2
-scipy==1.13.0
-
-# --- Gradient Boosting ---
-xgboost==2.0.3
 
 # --- HTTP Client ---
 httpx==0.27.0
 requests==2.31.0
-aiohttp==3.9.5
-
-# --- WebSocket ---
-websockets==12.0
 
 # --- Utilities ---
 python-jose[cryptography]==3.3.0
 apscheduler==3.10.4
 pyyaml==6.0.1
 joblib==1.4.2
-tqdm==4.66.4
