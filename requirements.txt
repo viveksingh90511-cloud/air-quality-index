@@ -1,0 +1,100 @@
+# 
+# Air Quality Forecasting & Health Monitoring
+
+# Enterprise Platform - Requirements
+
+# 
+# --- Core Backend Frameworks ---
+
+flask
+fastapi
+uvicorn[standard]
+gunicorn
+pydantic
+python-dotenv
+# --- Database ---
+
+sqlalchemy
+alembic
+pymysql
+# --- Caching & Task Queue ---
+
+redis
+celery
+# --- Authentication & Security ---
+
+pyjwt
+bcrypt
+python-multipart
+passlib
+# --- ML/AI Core ---
+
+numpy
+pandas
+scikit-learn
+scipy
+# --- Deep Learning ---
+
+keras
+# --- Gradient Boosting ---
+
+xgboost
+lightgbm
+# --- Time Series ---
+
+prophet
+statsmodels
+# --- Explainability ---
+
+shap
+lime
+# --- Computer Vision ---
+
+opencv-python-headless
+# --- NLP / Chatbot ---
+
+langchain
+openai
+tiktoken
+# --- Visualization ---
+
+plotly
+matplotlib
+seaborn
+# --- Streamlit ---
+
+streamlit
+streamlit-folium
+# --- Geospatial ---
+
+folium
+geopy
+# --- Data Processing ---
+
+openpyxl
+pyarrow
+# --- HTTP Client ---
+
+httpx
+requests
+aiohttp
+# --- WebSocket ---
+
+websockets
+# --- Testing ---
+
+pytest
+pytest-cov
+pytest-asyncio
+httpx
+# --- Linting ---
+
+flake8
+black
+# --- Utilities ---
+
+python-jose[cryptography]
+apscheduler
+pyyaml
+tqdm
+joblib

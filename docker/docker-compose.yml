@@ -1,0 +1,85 @@
+version: '3.8'
+
+services:
+  # FastAPI - Primary API Server
+  fastapi:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    container_name: aq-fastapi
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=development
+      - DATABASE_URL=sqlite:///./air_quality.db
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - ../backend:/app/backend
+      - ../config.py:/app/config.py
+    depends_on:
+      - redis
+    command: uvicorn backend.fastapi_services.main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - aq-network
+
+  # Streamlit Dashboard
+  streamlit:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    container_name: aq-streamlit
+    ports:
+      - "8501:8501"
+    volumes:
+      - ../streamlit_dashboard:/app/streamlit_dashboard
+      - ../backend:/app/backend
+      - ../config.py:/app/config.py
+    command: streamlit run streamlit_dashboard/app.py --server.port 8501 --server.address 0.0.0.0
+    networks:
+      - aq-network
+
+  # React Frontend
+  frontend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.frontend
+    container_name: aq-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - fastapi
+    networks:
+      - aq-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: aq-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - aq-network
+
+  # Nginx Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    container_name: aq-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ../deployment/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - fastapi
+      - frontend
+      - streamlit
+    networks:
+      - aq-network
+
+networks:
+  aq-network:
+    driver: bridge
+
+volumes:
+  redis-data:
